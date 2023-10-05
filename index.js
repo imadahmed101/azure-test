@@ -38,6 +38,10 @@ app.get('/', (req, res) => {
     res.send('YESSIR')
 })
 
+app.get('/yo', (req, res) => {
+    res.send('yo')
+})
+
 app.listen(port, () => {
     console.log('server running')
 })
