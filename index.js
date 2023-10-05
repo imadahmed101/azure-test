@@ -31,7 +31,8 @@
 
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 80
+// HAS TO HAVE PROCESS.ENV.PORT NOT JUST PORT 80 FOR IT TO WORK
+const port = process.env.PORT
 
 app.get('/', (req, res) => {
     res.send('YESSIR')
