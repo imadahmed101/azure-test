@@ -1,18 +1,20 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 80;
+// THIS ONE WORKS TOO BELOW VVVV
 
-app.get('/', (req, res)=>{
-    res.send('Welcome to my demo tutorial!')
-});
+// const express = require('express');
+// const app = express();
+// const port = process.env.PORT || 80;
 
-app.get('/greet', (req, res)=>{
-    res.send('Hello there, how is your day going?')
-});
+// app.get('/', (req, res)=>{
+//     res.send('Welcome to my demo tutorial!')
+// });
 
-app.listen(port, ()=>{
-    console.log('Application started');
-});
+// app.get('/greet', (req, res)=>{
+//     res.send('Hello there, how is your day going?')
+// });
+
+// app.listen(port, ()=>{
+//     console.log('Application started');
+// });
 
 
 
@@ -27,14 +29,14 @@ app.listen(port, ()=>{
 
 
 
-// const express = require('express')
-// const app = express()
-// const port = 3000
+const express = require('express')
+const app = express()
+const port = 80
 
-// app.get('/', (req, res) => {
-//     res.send('Hello world')
-// })
+app.get('/', (req, res) => {
+    res.send('YESSIR')
+})
 
-// app.listen(port, () => {
-//     console.log('server running')
-// })
+app.listen(port, () => {
+    console.log('server running')
+})
