@@ -1,24 +1,67 @@
+const studentSchema = require('../models/student')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+
 const tester = (req, res) => {
     res.send('tester works')
 }
 
-const login = (req, res) => {
+// const login = (req, res) => {
+//     const username = req.body.username
+//     const password = req.body.password
+
+//     try {
+//         return res.json({
+//             _id: "result.id",
+//             firstName: "result.firstName",
+//             username: username,
+//             token: "generateToken(result._id)"
+//         })
+
+
+//     } catch (error) {
+//         res.status(401).json(message = error.message)
+//     }
+// }
+
+const login = async (req, res) => {
     const username = req.body.username
     const password = req.body.password
 
     try {
-        return res.json({
-            _id: "result.id",
-            firstName: "result.firstName",
-            username: username,
-            token: "generateToken(result._id)"
-        })
+        const result = await studentSchema.findOne({ username })
+
+        if (result && (await bcrypt.compare(password, result.password))) {
+            return res.json({
+                _id: result.id,
+                firstName: result.firstName,
+                username: result.username,
+                token: generateToken(result._id)
+            })
+        }
+
+        res.status(401).json(message = "Login details incorrect")
 
 
     } catch (error) {
         res.status(401).json(message = error.message)
     }
 }
+
+
+const generateToken = (id) => {
+    return jwt.sign({id}, process.env.JWT_SECRET, {
+        expiresIn: '30d',
+    })
+}
+
+
+
+
+
+
+
+
 
 // const studentSchema = require('../models/student')
 // const bcrypt = require('bcryptjs')
