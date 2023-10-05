@@ -59,7 +59,7 @@ const app = express()
 app.use(express.json())
 // const env = require('dotenv/config')
 // const mongoose = require('mongoose')
-// const cors = require('cors')
+const cors = require('cors')
 
 const studentRoute = require('./routes/student')
 // const postRoute = require('./routes/post')
@@ -68,7 +68,7 @@ const studentRoute = require('./routes/student')
 const PORT = process.env.PORT || 80
 // const DBCONNECTION = process.env.DBCONNECTION
 
-// app.use(cors())
+app.use(cors())
 app.use('/', (studentRoute))
 // app.use('/post', (postRoute))
 // app.use('/comment', (commentRoute))
