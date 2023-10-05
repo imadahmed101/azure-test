@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
 app.get('/', (req, res)=>{
     res.send('Welcome to my demo tutorial!')
@@ -9,8 +10,8 @@ app.get('/greet', (req, res)=>{
     res.send('Hello there, how is your day going?')
 });
 
-app.listen(config.PORT, ()=>{
-    console.log('Application started successfully on port: ' + config.PORT);
+app.listen(PORT, ()=>{
+    console.log('Application started successfully on port: ' + PORT);
 });
 
 
