@@ -28,20 +28,55 @@
 // }).listen(port);
 
 
+// THIS WORKS ASWELL BELOW VVVV
+
+// const express = require('express')
+// const app = express()
+// // HAS TO HAVE PROCESS.ENV.PORT NOT JUST PORT 80 FOR IT TO WORK
+// const port = process.env.PORT
+
+// app.get('/', (req, res) => {
+//     res.send('YESSIR')
+// })
+
+// app.get('/yo', (req, res) => {
+//     res.send('yo')
+// })
+
+// app.listen(port, () => {
+//     console.log('server running')
+// })
+
+
+
+
+
+
+
 
 const express = require('express')
 const app = express()
-// HAS TO HAVE PROCESS.ENV.PORT NOT JUST PORT 80 FOR IT TO WORK
-const port = process.env.PORT
+app.use(express.json())
+// const env = require('dotenv/config')
+// const mongoose = require('mongoose')
+// const cors = require('cors')
 
-app.get('/', (req, res) => {
-    res.send('YESSIR')
-})
+const studentRoute = require('./routes/student')
+// const postRoute = require('./routes/post')
+// const commentRoute = require('./routes/comment')
 
-app.get('/yo', (req, res) => {
-    res.send('yo')
-})
+const PORT = process.env.PORT || 80
+// const DBCONNECTION = process.env.DBCONNECTION
 
-app.listen(port, () => {
+// app.use(cors())
+app.use('/', (studentRoute))
+// app.use('/post', (postRoute))
+// app.use('/comment', (commentRoute))
+
+// mongoose.connect(DBCONNECTION)
+// .then(() => {app.listen((PORT), console.log (`Server running on port ${PORT}`))})
+// .catch((error) => console.log(error.message))
+
+app.listen(PORT, () => {
     console.log('server running')
 })
