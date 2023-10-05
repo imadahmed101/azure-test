@@ -10,11 +10,15 @@ const {
     // editEducation,
     // work,
     // editWork
+    login,
     tester
+
     
 } = require('../controllers/student')
 
 router.get('/', tester)
+router.post('/login', login)
+
 // router.post('/login', login)
 
 // router.post('/register', register)

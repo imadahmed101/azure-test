@@ -2,6 +2,24 @@ const tester = (req, res) => {
     res.send('tester works')
 }
 
+const login = (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+
+    try {
+        return res.json({
+            _id: "result.id",
+            firstName: "result.firstName",
+            username: "result.username",
+            token: "generateToken(result._id)"
+        })
+
+
+    } catch (error) {
+        res.status(401).json(message = error.message)
+    }
+}
+
 // const studentSchema = require('../models/student')
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken')
@@ -82,9 +100,9 @@ const tester = (req, res) => {
 //             username: result.username,
 //             token: result.token
 //         })
-        
+
 //     } catch (error) {
-        
+
 //     }
 
 //     // res.json(token)
@@ -135,7 +153,7 @@ const tester = (req, res) => {
 //             schoolAddress: result.schoolAddress,
 //             token: result.token
 //         })
-        
+
 //     } catch (error) {
 //         res.status(401).json(message = error.message)
 //     }
@@ -192,7 +210,7 @@ const tester = (req, res) => {
 //             skills: result.skills,
 //             token: result.token
 //         })
-        
+
 //     } catch (error) {
 //         res.status(401).json(message = error.message)
 //     }
@@ -235,5 +253,6 @@ const tester = (req, res) => {
 // }
 
 module.exports = {
-    tester
+    tester,
+    login
 }
