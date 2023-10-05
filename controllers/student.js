@@ -10,7 +10,7 @@ const login = (req, res) => {
         return res.json({
             _id: "result.id",
             firstName: "result.firstName",
-            username: "result.username",
+            username: username,
             token: "generateToken(result._id)"
         })
 
